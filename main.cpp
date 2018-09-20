@@ -20,13 +20,13 @@ int main(int argc, char const *argv[])
 {
     while (true)
     {
-        cout << "\033[2J\033[1;1H";
-        cout << "C++ RPN Console Calculator; Enter one expression part at a time." << endl;
-        cout << "-----------------------------History----------------------------" << endl;
-        cout << history;
-        cout << "------------------------------Stack-----------------------------" << endl;
-        cout << stackLines();
-        cout << "----------------------------------------------------------------" << endl;
+        cout << "\033[2J\033[1;1H"
+             << "C++ RPN Console Calculator; Enter one expression part at a time." << endl
+             << "-----------------------------History----------------------------" << endl
+             << history
+             << "------------------------------Stack-----------------------------" << endl
+             << stackLines()
+             << "----------------------------------------------------------------" << endl;
 
         string input;
         getline(cin, input);
@@ -76,6 +76,10 @@ int main(int argc, char const *argv[])
             {
                 root();
             }
+            else if (input == "%")
+            {
+                mod();
+            }
             else if (input == "C")
             {
                 stackClear();
@@ -88,16 +92,17 @@ int main(int argc, char const *argv[])
             }
             else
             {
-                cout << "Valid inputs:" << endl;
-                cout << "Operands: Add +, Subtract -, Multiply *, Divide /, Exponential ^ or **" << endl;
-                cout << "Square Root: SQRT" << endl;
-                cout << "Clear: C, All Clear: AC" << endl;
-                cout << "Example valid expression:" << endl
+                cout << "Valid inputs:" << endl
+                     << "Operands: Add +, Subtract -, Multiply *, Divide /, Modulus %, Exponential ^ or **" << endl
+                     << "Square Root: SQRT" << endl
+                     << "Clear: C" << endl
+                     << "All Clear: AC" << endl
+                     << "Example valid expression:" << endl
                      << "5" << endl
                      << "6" << endl
                      << "+" << endl
-                     << "[returns 11, removes 5 and 6, and places 11 bottom of the stack]" << endl;
-                cout << "Press Enter to continue..." << endl;
+                     << "[returns 11, removes 5 and 6, and places 11 bottom of the stack]" << endl
+                     << "Press Enter to continue..." << endl;
                 cin.get();
                 continue;
             }

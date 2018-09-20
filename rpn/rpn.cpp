@@ -152,3 +152,21 @@ double root()
 
     return result;
 }
+
+double mod()
+{
+    double result;
+
+    if (stack.size() > 1)
+    {
+        result = fmod(stack[stack.size() - 2], stack[stack.size() - 1]);
+        stack.pop_back();
+        stack[stack.size() - 1] = result;
+    }
+    else
+    {
+        result = 0;
+    }
+
+    return result;
+}
